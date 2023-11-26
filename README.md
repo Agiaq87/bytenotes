@@ -4,4 +4,4 @@
 
 
 Topics covered (always being updated):
-  Array [Javascript]
+* Array [Javascript]
