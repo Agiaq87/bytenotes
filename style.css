@@ -4,6 +4,15 @@ body {
     font-weight: 300;
 }
 
+h4 {
+    display: block;
+    margin-block-start: 1.0em;
+    margin-block-end: 1.0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
 .title {
     font-family: 'Leckerli One';
     color: #ff8c00;
@@ -20,4 +29,43 @@ li {
 .important-marker::marker {
     color: #ff8c00;
     font-weight: bold;
+}
+
+#note-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 8px;
+    margin: 8px;
+}
+
+.default-border {
+    border-bottom: 3px solid #878787;
+	border-left: 2px solid #878787;
+	border-right: 2px solid #878787;
+	border-bottom-left-radius: 5%;
+	border-bottom-right-radius: 5%;
+	border-top-left-radius: 1%;
+	border-top-right-radius: 1%;
+}
+
+.title-notes {
+    margin: 24px 2px -16px 24px;
+}
+
+.default-padding {
+    padding: 8px;
+}
+
+.separator-right {
+    border-right: 1px solid #878787;
+    padding: 8px 2px 8px 8px;
+}
+
+.separator-left {
+    border-left: 1px dotted #878787;
+    padding: 8px 2px 8px 8px;
+}
+
+.deleted-element {
+    color: #ff8c00;
 }
