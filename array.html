@@ -54,23 +54,56 @@
             </div>
         </div>
 
-        <div class="default-padding">
-            <h4 class="title-notes">Splice</h4>
-            <div id="note-container" class="default-border default-padding">
-                <div class="separator-right">
-                    <span>
-                        <h4>Unshift</h4>
-                        <p>The first inserted element with unshift have a orange marker</p>
-                    </span>
-                    <div id="unshift"></div>
-                </div>
-                <div class="separator-left">
-                    <h4>Shift</h4>
-                    <p>The first deleted are shown apart</p>
-                    <div id="shift"></div>
+        <h4>Splice</h4>
+        <div class="four-row">
+            <div>
+                <h5>Array list</h5>
+                <div id="splice-list"></div>
+            </div>
+            <div>
+                <h5>startIndex parameter</h5>
+                <span class="input">
+                    <strong>array.splice(startIndex=</strong>
+                    <input id="splice-one-input" type="number" min="-100" max="100" value="2">
+                    <strong>)</strong>
+                    <button type="button" onclick="spliceSectionOneParameter()">=></button>
+                </span>
+                <div class="two-columns">
+                    <div>
+                        <p>Trasformed array:</p>
+                        <div id="splice-one-transform"></div>
+                    </div>
+                    
+                    <div>
+                        <p>Removed element(s) array:</p>
+                        <div id="splice-one-removed"></div>
+                    </div>
                 </div>
             </div>
+            <div>
+                <h5>endIndex parameter</h5>
+                <span class="input">
+                    <strong>array.splice(startIndex=</strong>
+                    <input id="splice-two-input-one" type="number" min="-100" max="100" value="1">
+                    <strong>, endIndex=</strong>
+                    <input id="splice-two-input-two" type="number" min="-100" max="100" value="2">
+                    <strong>)</strong>
+                    <button type="button" onclick="spliceSectionTwoParameter()">=></button>
+                </span>
+                <div class="two-columns">
+                    <div>
+                        <p>Trasformed array:</p>
+                        <div id="splice-one-transform-two"></div>
+                    </div>
+                    
+                    <div>
+                        <p>Removed element(s) array:</p>
+                        <div id="splice-one-removed-two"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="splice-two"></div>
+            <div id="splice-three"></div>
         </div>
-        
     </body>
 </html>

@@ -39,17 +39,14 @@ li {
 }
 
 .default-border {
-    border-bottom: 3px solid #878787;
-	border-left: 2px solid #878787;
-	border-right: 2px solid #878787;
-	border-bottom-left-radius: 5%;
-	border-bottom-right-radius: 5%;
-	border-top-left-radius: 1%;
-	border-top-right-radius: 1%;
+    border-left: 2px solid #878787;
+	border-bottom: 1px dotted #878787;
+	border-bottom-left-radius: 20px;
+	border-top-left-radius: 20px;
 }
 
 .title-notes {
-    margin: 24px 2px -16px 24px;
+    margin: 24px 2px -8px 32px;
 }
 
 .default-padding {
@@ -68,4 +65,23 @@ li {
 
 .deleted-element {
     color: #ff8c00;
+}
+
+.four-row {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
+.two-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.input {
+    display: inline-flex;
+        height: 10%;
+}
+
+.input > p {
+    margin: 0px 4px;
 }

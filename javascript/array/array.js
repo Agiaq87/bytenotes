@@ -67,6 +67,12 @@ function makeTextContent(i) {
     }
 }
 
+function makeTextBetweenList(message) {
+    const paragraph = document.createElement("p");
+    paragraph.textContent = message;
+    return paragraph;
+}
+
 function createList(arr, useImportantOnLast, useImportantOnFirst) {
     const container = document.createElement("div");
     const ul = document.createElement("ul");
@@ -139,9 +145,8 @@ function shiftSection(arr) {
     console.log('Before shift', arr);
 
     const shifted = arr.shift();
-    document.getElementById('shift').appendChild(createList(arr,false));
-    const showShiftedElement = document.createElement("p");
-    showShiftedElement.textContent = `Element deleted with shift:`;
+    document.getElementById('shift').appendChild(createList(arr,false, false));
+    const showShiftedElement = makeTextBetweenList(`Element deleted with shift:`);
     document.getElementById('shift').appendChild(showShiftedElement);
     document.getElementById('shift').appendChild(createList([shifted], false, false));
 
@@ -159,17 +164,84 @@ function lifoSection(arr) {
 }
 
 
+function spliceSection() {
+    document.getElementById("splice-list").appendChild(createList(originalArray, false, false));
+}
+
+function spliceSectionOneParameter() {
+    let originalArray = listSection();
+    const value = document.getElementById("splice-one-input").value;
+    console.log('Before splice', originalArray, value);
+
+    const elementTransform = document.getElementById("splice-one-transform");
+    const elementRemoved = document.getElementById("splice-one-removed")
+    
+    if (elementTransform.children.length > 0) {
+        for(const c of elementTransform.children) {
+            c.remove();
+        }
+    }
+
+    if (elementRemoved.children.length > 0) {
+        for (const c of elementRemoved.children) {
+            c.remove();
+        }
+    }
+    
+    const tempArray = originalArray;
+    const removed = originalArray.splice(value);
+    
+    elementTransform.appendChild(createList(tempArray, false, false));
+    elementRemoved.appendChild(createList(removed, false, false));
+
+    console.log('After splice', tempArray, removed);
+}
+
+function spliceSectionTwoParameter() {
+    let originalArray = listSection();
+    const valueOne = document.getElementById("splice-two-input-one").value;
+    const valueTwo = document.getElementById("splice-two-input-two").value;
+    console.log('Before splice', originalArray, valueOne, valueTwo);
+
+    const elementTransform = document.getElementById("splice-one-transform-two");
+    const elementRemoved = document.getElementById("splice-one-removed-two")
+    
+    if (elementTransform.children.length > 0) {
+        for(const c of elementTransform.children) {
+            c.remove();
+        }
+    }
+
+    if (elementRemoved.children.length > 0) {
+        for (const c of elementRemoved.children) {
+            c.remove();
+        }
+    }
+    
+    const tempArray = originalArray;
+    const removed = originalArray.splice(valueOne, valueTwo);
+    
+    elementTransform.appendChild(createList(tempArray, false, false));
+    elementRemoved.appendChild(createList(removed, false, false));
+
+    console.log('After splice', tempArray, removed);
+}
+
+
 function setup() {
     const arr = listSection();
+    originalArray = listSection();
     
     fifoSection(arr);
 
     lifoSection(arr);
 
-    document.getElementById('print').innerHTML = `Rects and squares created, num of elements in array with lenght: <strong>${arr.length}</strong>`;
+    spliceSection();
+
+    //document.getElementById('print').innerHTML = `Rects and squares created, num of elements in array with lenght: <strong>${arr.length}</strong>`;
     
-    const filter = arr.filter(i => i.base !== undefined);
+    /*const filter = arr.filter(i => i.base !== undefined);
     console.log(filter);
 
-    document.getElementById('filter').innerHTML = `Filter rectangles in array, obtain new array with ${filter.length} rectangles`;
+    document.getElementById('filter').innerHTML = `Filter rectangles in array, obtain new array with ${filter.length} rectangles`;*/
 }
