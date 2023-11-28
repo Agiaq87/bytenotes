@@ -60,10 +60,12 @@ function _makeRectangles() {
 }
 
 function makeTextContent(i) {
-    if (i.base === undefined) {
+    if (i.base === undefined && i.side) {
         return `Square side: ${i.side}, perimeter: ${i.perimeter}, area: ${i.area}`;
-    } else {
+    } else if(i.base) {
         return `Rect base: ${i.base}, height: ${i.height}, perimeter: ${i.perimeter}, area: ${i.area}`;
+    } else {
+        return `Value: ${i}`;
     }
 }
 
@@ -197,6 +199,7 @@ function spliceSectionOneParameter() {
     console.log('After splice', tempArray, removed);
 }
 
+
 function spliceSectionTwoParameter() {
     let originalArray = listSection();
     const valueOne = document.getElementById("splice-two-input-one").value;
@@ -220,6 +223,37 @@ function spliceSectionTwoParameter() {
     
     const tempArray = originalArray;
     const removed = originalArray.splice(valueOne, valueTwo);
+    
+    elementTransform.appendChild(createList(tempArray, false, false));
+    elementRemoved.appendChild(createList(removed, false, false));
+
+    console.log('After splice', tempArray, removed);
+}
+
+function spliceSectionThreeParameter() {
+    let originalArray = listSection();
+    const valueOne = document.getElementById("splice-three-input-one").value;
+    const valueTwo = document.getElementById("splice-three-input-two").value;
+    const valueThree = document.getElementById("splice-three-input-three").value;
+    console.log('Before splice', originalArray, valueOne, valueTwo, valueThree);
+
+    const elementTransform = document.getElementById("splice-three-transform");
+    const elementRemoved = document.getElementById("splice-three-removed")
+    
+    if (elementTransform.children.length > 0) {
+        for(const c of elementTransform.children) {
+            c.remove();
+        }
+    }
+
+    if (elementRemoved.children.length > 0) {
+        for (const c of elementRemoved.children) {
+            c.remove();
+        }
+    }
+    
+    const tempArray = originalArray;
+    const removed = originalArray.splice(valueOne, valueTwo, ...valueThree);
     
     elementTransform.appendChild(createList(tempArray, false, false));
     elementRemoved.appendChild(createList(removed, false, false));

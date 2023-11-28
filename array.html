@@ -102,8 +102,30 @@
                     </div>
                 </div>
             </div>
-            <div id="splice-two"></div>
-            <div id="splice-three"></div>
+            <div>
+                <h5>items parameter</h5>
+                <span class="input">
+                    <strong>array.splice(startIndex=</strong>
+                    <input id="splice-three-input-one" type="number" min="-100" max="100" value="1">
+                    <strong>, endIndex=</strong>
+                    <input id="splice-three-input-two" type="number" min="-100" max="100" value="2">
+                    <strong>, items=</strong>
+                    <input id="splice-three-input-three" type="text">
+                    <strong>)</strong>
+                    <button type="button" onclick="spliceSectionThreeParameter()">=></button>
+                </span>
+                <div class="two-columns">
+                    <div>
+                        <p>Trasformed array:</p>
+                        <div id="splice-three-transform"></div>
+                    </div>
+                    
+                    <div>
+                        <p>Removed element(s) array:</p>
+                        <div id="splice-three-removed"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </body>
 </html>
